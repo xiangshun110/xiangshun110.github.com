@@ -1,74 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+<head>
+<meta charset="utf-8">
+<title>微信墙介绍</title>
+<style type="text/css">
+body{
+	background:#6CF;
+	margin:0;
+}
+.example{
+	background: #6CF;
+	text-align:center;
+}
+.useDiv{
+	background:#6C6;
+	text-align:center;
+}
+.divColor1{
+	background: #99C;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #FFF;
+	font-size: 36px;
+}
+.divColor2{
+	background:#FCC;
+	width:90%;	
+}
+.title1{
+	text-align:center;
+	font-size:40px;
+	font-weight:bold;
+	color:#FFF;
+	margin:0px;
+	font-family:”微软雅黑”,”黑体”;
+	background:#8686c6;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+</style>
+<link href="css/style.css" rel="stylesheet" media="all" />
+</head>
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Xiangshun110.github.com : test web pages">
+<body>
+<script>
+lastScrollY=0;
+function heartBeat(){
+var diffY;
+if (document.documentElement && document.documentElement.scrollTop)
+    diffY = document.documentElement.scrollTop;
+else if (document.body)
+    diffY = document.body.scrollTop
+else
+    {/*Netscape stuff*/}
+percent=.1*(diffY-lastScrollY);
+if(percent>0)percent=Math.ceil(percent);
+else percent=Math.floor(percent);
+document.getElementById("full").style.top=parseInt(document.getElementById("full").style.top)+percent+"px";
+lastScrollY=lastScrollY+percent;
+}
+suspendcode="<div id=\"full\" style='right:1px;POSITION:absolute;TOP:600px;z-index:100'><a onclick='window.scrollTo(0,0);'><img src='images/topImage_03.jpg' width='161' height='56' /></a><br></div>"
+document.write(suspendcode);
+window.setInterval("heartBeat()",1);
+</script>
+<div id="menu">
+	<ul>
+		<li><a href="#" class="current">干什么的？</a></li>
+		<li><a href="#use">要怎么用？</a></li>
+		<li><a href="#download">哪儿下载？</a></li>
+		<li><a href="#contact">怎么联系？</a></li>								
+	</ul>
+</div>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+<div id="example" class="example">
+<div class="divColor1">
+<p class="title1">先文字简短介绍下：</p>
+<p class="title1">微信墙就是在会场人们用微信向一个公众号发送消息，这条消息就可以显示在会场的大屏幕上面。这样可以提高会场的互动氛围。</p>
+<p class="title1">下面看一些实例：</p>
+<p class="title1">婚礼现场</p>
+<p style="text-align: center"><img src="images/5.jpg" width="600" height="432"  alt=""/></p>
+</div>
+<div class="divColor1">
+<p class="title1">婚礼现场大屏幕特写</p>
+<p style="text-align: center"><img src="images/4.jpg" width="600" height="447"  alt=""/></p>
+</div>
+<div class="divColor1">
+<p class="title1">节目现场</p>
+<p style="text-align: center"><img src="images/1.jpg" width="550" height="365"  alt=""/></p>
+</div>
+<div class="divColor1">
+<p class="title1">小型会议</p>
+<p style="text-align: center"><img src="images/2.jpg" width="600" height="399"  alt=""/></p>
+</div>
+<div class="divColor1">
+<p class="title1">大型会议</p>
+<p style="text-align: center"><img src="images/6.jpg" width="613" height="420"  alt=""/></p>
+</div>
+</div>
+<div id="useDiv" class="useDiv">
+<a name="use" id="use"></a>
+<div class="divColor1">
+<p class="title1">使用篇，来吧，一步一步的来</p>
+<p style="text-align: center"><img src="images/use1.jpg" width="700" height="440"  alt=""/></p>
+</div>
+<div class="divColor1">
+<p style="text-align: center"><img src="images/use2.jpg" width="700" height="440"  alt=""/></p>
+</div>
+<div class="divColor1">
+<p style="text-align: center"><img src="images/use3.jpg" width="700" height="440"  alt=""/></p>
+</div>
+<div class="divColor1">
+<p style="text-align: center"><img src="images/use4.jpg" width="700" height="440"  alt=""/></p>
+</div>
+<div class="divColor1">
+<p style="text-align: center"><img src="images/use5.jpg" width="700" height="440"  alt=""/></p>
+</div>
+</div>
 
-    <title>Xiangshun110.github.com</title>
-  </head>
+<div class="example">
+<a name="download" id="download"></a>
+<div class="divColor1">
+<p class="title1">在这儿下载</p>
+<p style="text-align: center">为了保证下载速度，还是用百度网盘（又给百度打广告了)</p>
+<p style="text-align: center">百度网盘：<a href="http://pan.baidu.com/s/1eQw1xtS" target="new">http://pan.baidu.com/s/1eQw1xtS</a></p>
+</div>
+</div>
 
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/xiangshun110">View on GitHub</a>
-
-          <h1 id="project_title">Xiangshun110.github.com</h1>
-          <h2 id="project_tagline">test web pages</h2>
-
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+<div class="useDiv">
+<a name="contact" id="contact"></a>
+<div class="divColor1">
+<p class="title1">联系方式</p>
+<p style="text-align: center; font-size: 36px; color: #FFF;">手机:13917745054</p>
+<p style="text-align: center; font-size: 36px; color: #FFF;">邮箱:113648883@qq.com</p>
+<p style="text-align: center; font-size: 36px; color: #FFF;">------------------------------下面是附加信息：------------------------------</p>
+<p style="text-align: center; font-size: 36px; color: #F00;">获取软件账号：</p>
+<p style="text-align: center; font-size: 36px; color: #FFF;">发送您的手机号码到上面的邮箱就可以免费试用咯！(我会尽快回复您邮件，邮件里会有账号密码)</p>
+<p style="text-align: center; font-size: 36px; color: #FFF;"></p>
+<p style="text-align: center; font-size: 36px; color: #FFF;"></p>
+<div align="center"><hr width="60%" color="#FFFFFF" size="1"></div> 
+<p style="text-align: center; font-size: 36px; color: #F00;">该软件的优势：</p>
+<p style="text-align: center; font-size: 36px; color: #F00;"><span style="font-size: 36px; color: #FFF">只要您有微信公众号，不管是认证的还是没有认证的，不管是订阅号还是服务号都能使用。</span></p>
+<p style="text-align: center; font-size: 36px; color: #F00;"><span style="font-size: 36px; color: #FFF">还有，MAC（苹果）电脑也能使用这个软件哦！</span></p>
+<p style="text-align: center; font-size: 36px; color: #F00;"><span style="font-size: 36px; color: #FFF">
+  还有抽奖功能哦！<br>
+</span></p>
+<div align="center"><hr width="60%" color="#FFFFFF" size="1"></div> 
+<p style="text-align: center; font-size: 36px; color: #F00;">会场网络解决方案：</p>
+<p style="text-align: center; font-size: 36px; color: #F00;"><span style="font-size: 36px; color: #FFF">目前很多会场或者婚礼酒店都没有提供网络，其实网络问题很好解决，只要您有一个智能手机就OK，把手机2G网络或者3G网络分享出来，然后笔记本电脑去连接这个网络就OK，具体怎么操作可以百度一下。我也在百度搜索了一篇：</span></p>
+<p><a href="http://jingyan.baidu.com/article/c74d600041966b0f6a595deb.html" target="new" style="font-size: 18px">http://jingyan.baidu.com/article/c74d600041966b0f6a595deb.html</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="text-align: center; font-size: 36px; color: #FFF;">。。。</p>
+<p style="text-align: center; font-size: 36px; color: #FFF;">谢谢！</p>
+<p style="text-align: center; font-size: 36px; color: #FFF;">END</p>
+<p style="text-align: center; font-size: 36px; color: #FFF;">。。。</p>
+</div>
+</div>
+</body>
 </html>
