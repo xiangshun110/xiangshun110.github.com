@@ -1,0 +1,155 @@
+<!doctype html>
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<title>摇一摇视频演示-微信大屏幕-微信墙-现场互动第二空间</title>
+<meta name="keywords" content="微信大屏幕,微信墙,微信上墙,签到,抽奖,对对碰,投票,短信上墙" />
+<meta name="description" content="微信大屏幕，又称微信墙，可以通过大屏幕同步展示现场观众发送的微信消息。在展会、会议、培训、年会、沙龙、婚礼、赛事、演出等各类活动聚会中大显身手，是活动的新玩法，是微信公众账号的加粉、宣传利器。" />
+<meta property="qc:admins" content="636073065703325566316110063757" />
+<meta name="baidu-site-verification" content="a7c3d467833690c50aeab7c113a6597a"/>
+<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/jhlpdmpclnpaojaipnnheoaalgdmofeg">
+<meta name="google-site-verification" content="yTdhNecTUu3sSSRcoqO5TLUc9k003MgaGEaOnslsnew" />
+
+<link rel="stylesheet" href="../css/base-v=v1009.css" type="text/css" />
+<link rel="stylesheet" href="../css/official-v=v1009.css" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+<div id="wrap">
+  <div class="header">
+      <div class="inner-header clearfix">
+        <a href="../index.html" title="微信大屏幕" class="logo left"></a>
+        <ul class="nav-list right">
+          <li ><a href="../index.html" title="首页">首页</a></li>
+          <li ><a href="../case.html" title="精选案例">精选案例</a></li>
+          <li ><a href="../user/login-from=apply.html" title="免费申请">免费申请</a></li>
+          <li ><a href="../price.html" title="服务定价">服务定价</a></li>
+          <li><a href="http://demo.wxscreen.com/" title="在线演示" target="_blank">在线演示</a></li>
+          <li  title="帮助"><a href="../support.html">帮助</a></li>
+                                <li class="nav-login"><a href="../user/login.html" title="登录">登录</a></li>
+                  </ul>
+      </div>
+    </div><!--end .header-->
+
+  <div class="shake-show">
+    <div class="shake-inner clearfix">
+      <div class="shake-left left">
+        <p class="smsg">微信大屏幕<br />摇一摇视频演示</p>
+        <p class="smsg2">全场齐摇嗨翻现场！</p>
+                  <p class="btn-wrap9"><a href="javascript:void(0);" class="btn-buy4" id="buyShakeBtn">立即开通</a></p>
+              </div>
+      <div class="shake-right right">
+        <div class="videobox">
+          <embed src="http://player.youku.com/player.php/sid/XNzQyMDU1NDg4/v.swf" allowFullScreen="true" quality="high" width="600" height="378" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end .container-->
+
+<!--大屏幕选择弹层-->
+<div class="pop-select hidden" id="show-company" style="display:none;">
+  <div class="inner-pop">
+    <div class="pop-top">
+      <a href="javascript:void(0);" class="btn-close">×</a>
+    </div>
+    <div class="pop-main">
+      <p class="pop-tips2">您拥有多个大屏幕，请选择您需要给哪个大屏幕购买摇一摇服务：</p>
+      <div class="sform">
+        <select class="select-screen" name="domain" >
+        <option value="1">请选择你大屏幕</option>
+                </select>
+        <a href="javascript:void(0);"class="btn-green2 btn-submit2"  id="js_sub" data-goods-id="103">确认</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end 大屏幕选择弹层-->
+
+<script>
+var user_id = "0";
+var company_num = "0";
+
+$(function(){
+  $('#buyShakeBtn').click(function(){
+    if(user_id <= 0) {
+      alert("请先登录");
+      window.location.href = "http://www.wxscreen.com/user/login";
+      return false;
+    }
+    if (company_num == '0') {
+      if (!confirm('您还没有通过审核的大屏幕，需要申请吗？')) {
+        return false;
+      } else {
+        window.location.href="http://www.wxscreen.com/user/apply";
+        return true;
+      }
+    }
+    var new_top = $(this).offset().top;
+    $(".pop-select").attr('style', 'top:'+new_top+'px;').show();
+  });
+
+  $("#js_sub").click(function (){
+    var url = $(this).attr('href');
+    if (url != 'javascript:void(0);'){
+        $("select[name=domain] option:eq(0)").attr("selected", "selected");
+        //$(this).attr('href', 'javascript:;');
+        $("#show-company").hide(function (){ $("#js_sub").attr('href', 'javascript:void(0);');});
+    }
+  });
+
+  $("select[name=domain]").change(function (){
+    var domain = $("select[name=domain]").val();
+    if ('string' != typeof(domain)){ alert("信息错误~"); return false;}
+    var goods_id = $("#js_sub").attr("data-goods-id");
+    var url = '';
+    url  = 'http://www.wxscreen.com/'+domain+'/goods?goods_id='+goods_id;
+    if (domain == '1') {
+        url = 'javascript:void(0);';
+    }
+    $("#js_sub").attr("href", url);
+    return true;
+  });
+});
+
+</script>
+  <div class="footer">
+    <div class="inner clearfix">
+      <div class="logobottom left">
+      <a href="../index.html" title="微信大屏幕、微信墙-互动阳光旗下产品" class="logo"></a>
+      <a href="http://www.alltosun.com" title="访问互动阳光官方网站" class="logo-sun" target="_blank"></a>
+      </div>
+      <p class="copyright right">京ICP备11007519号-5</p>
+      <div class="support-logo right">
+        <span class="logo-sup logo-g"></span>
+        <span class="logo-sup logo-h"></span>
+        <span class="logo-sup logo-s"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="yaoyiyao.html#top" id="scrollUp"></a>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $.scrollUp({
+	  scrollName: 'scrollUp', // Element ID
+	  topDistance: '300', // Distance from top before showing element (px)
+	  topSpeed: 300, // Speed back to top (ms)
+	  animation: 'fade', // Fade, slide, none
+	  animationInSpeed: 200, // Animation in speed (ms)
+	  animationOutSpeed: 200, // Animation out speed (ms)
+	  scrollText: '', // Text for element
+	  activeOverlay: false  // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+    });
+  });
+</script>
+<script type="text/javascript">
+  var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fcbc479ac4119d55c0b8a663cd1ccbdec' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

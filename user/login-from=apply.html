@@ -1,0 +1,171 @@
+<!doctype html>
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<title>登录-微信大屏幕-微信墙-现场互动第二空间</title>
+<meta name="keywords" content="微信大屏幕,微信墙,微信上墙,签到,抽奖,对对碰,投票,短信上墙" />
+<meta name="description" content="微信大屏幕，又称微信墙，可以通过大屏幕同步展示现场观众发送的微信消息。在展会、会议、培训、年会、沙龙、婚礼、赛事、演出等各类活动聚会中大显身手，是活动的新玩法，是微信公众账号的加粉、宣传利器。" />
+<meta property="qc:admins" content="636073065703325566316110063757" />
+<meta name="baidu-site-verification" content="a7c3d467833690c50aeab7c113a6597a"/>
+<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/jhlpdmpclnpaojaipnnheoaalgdmofeg">
+<meta name="google-site-verification" content="yTdhNecTUu3sSSRcoqO5TLUc9k003MgaGEaOnslsnew" />
+
+<link rel="stylesheet" href="../css/base-v=v1009.css" type="text/css" />
+<link rel="stylesheet" href="../css/official-v=v1009.css" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+<div id="wrap">
+  <div class="header">
+      <div class="inner-header clearfix">
+        <a href="../index.html" title="微信大屏幕" class="logo left"></a>
+        <ul class="nav-list right">
+          <li ><a href="../index.html" title="首页">首页</a></li>
+          <li ><a href="../case.html" title="精选案例">精选案例</a></li>
+          <li ><a href="login-from=apply.html" title="免费申请">免费申请</a></li>
+          <li ><a href="../price.html" title="服务定价">服务定价</a></li>
+          <li><a href="http://demo.wxscreen.com/" title="在线演示" target="_blank">在线演示</a></li>
+          <li  title="帮助"><a href="../support.html">帮助</a></li>
+                                <li class="nav-login"><a href="login.html" title="登录">登录</a></li>
+                  </ul>
+      </div>
+    </div><!--end .header-->
+
+
+ <div class="wrap-login">
+    <div class="container clearfix">
+          <div class="tips-login-img"></div>
+          <div class="login-right">
+        <div class="txt-bar"><label><input name="username" type="text" data-js="js_user"><span class="tips js_user">用户名/邮箱/大屏幕账号</span></label></div>
+        <div class="txt-bar"><label><input name="password" type="password" data-js="js_pwd"><span class="tips js_pwd">密码</span></label></div>
+        <div class="shop-under clearfix">
+          <a href="findpwd.html" class="forg-pass right">忘记密码</a>
+          <a href="javascript:void(0);" class="select-me"><i class="icon-select icon-selected"></i><span>记住登录状态</span></a>
+        </div>
+        <div class="btnbox">
+          <button class="btn-regist">注册帐号</button>
+          <button class="btn-login" id="loginSubmitBtn">登 录</button>
+        </div>
+        <div class="btnbox2">
+          <a href="http://www.wxscreen.com/openapi/qqconnect/index/login" class="btn-qq" target="_blank"><i></i>腾讯QQ号登录</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+  $(function(){
+  $('.select-me').click(function(){
+        $(this).children('.icon-select').toggleClass('icon-selected');
+      });
+  
+    $('input[name="username"], input[name="password"]').keyup(function(){
+      $(this).closest('.control-group').removeClass('error')
+    });
+    
+    // 登录
+    $('#loginSubmitBtn').click(function(){
+      var username = $.trim($('input[name="username"]').val());
+      var password = $.trim($('input[name="password"]').val());
+      if ( !username ) {
+        $('input[name="username"]').closest('.control-group').addClass('error');
+        $('input[name="username"]').focus();
+        return;
+      }
+      if ( !password ) {
+        $('input[name="password"]').closest('.control-group').addClass('error');
+        $('input[name="password"]').focus();
+        return;
+      }
+      $.post("login.html", { 'username':username, 'password':password }, function(json){
+        if ( json.info != 'ok' ) {
+          alert(json.info);
+          return false;
+        }
+        //alert(json.href);
+       window.location.href = json.href;
+      }, 'json');
+    });
+    
+    $("input").keyup(function (){
+        var obj = $(this);
+        var cls = obj.data('js');
+        if(obj.val()){
+               $("."+cls).html('');
+        } else {
+            if (cls == 'js_user') {
+                $("."+cls).html('用户名/邮箱/大屏幕账号');
+            } else {
+                $("."+cls).html('密码');
+            }
+        }
+    });
+    
+    $(".btn-regist").click(function (e){
+        e.preventDefault();
+        window.location.href = "http://www.wxscreen.com/user/register";
+    });
+    
+    $(document).keydown(function(e){
+        if(e.which == 13) {
+             var username = $.trim($('input[name="username"]').val());
+              var password = $.trim($('input[name="password"]').val());
+              if ( !username ) {
+                $('input[name="username"]').closest('.control-group').addClass('error');
+                $('input[name="username"]').focus();
+                return;
+              }
+              if ( !password ) {
+                $('input[name="password"]').closest('.control-group').addClass('error');
+                $('input[name="password"]').focus();
+                return;
+              }
+              $.post("login.html", { 'username':username, 'password':password }, function(json){
+                if ( json.info != 'ok' ) {
+                  alert(json.info);
+                  return false;
+                }
+                //alert(json.href);
+               window.location.href = json.href;
+              }, 'json');
+        }
+        });
+  });
+</script>
+  <div class="footer">
+    <div class="inner clearfix">
+      <div class="logobottom left">
+      <a href="../index.html" class="logo"></a>
+      <a href="http://www.alltosun.com" class="logo-sun" target="_blank"></a>
+      </div>
+      <p class="copyright right">京ICP备11007519号-5</p>
+      <div class="support-logo right">
+        <span class="logo-sup logo-g"></span>
+        <span class="logo-sup logo-h"></span>
+        <span class="logo-sup logo-s"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fcbc479ac4119d55c0b8a663cd1ccbdec' type='text/javascript'%3E%3C/script%3E"));
+$(function (){
+	 //除首页外高度不够给div.container填补padding值
+	  var winHeight = $(window).height(),
+	      pagesHeight = $(document.body).height(),
+	      diffHeight = winHeight - pagesHeight;
+	  if( winHeight > pagesHeight ){
+	    $('.container').css("paddingBottom", diffHeight+20);
+	  }else{ 
+	    $('.container').css("paddingBottom", "");
+	  }	
+});
+  </script>
+  
+<div class="popmayer hidden"></div>
+<div class="guide-load hidden" id="insExtLoading"><img src="../images/loading2.gif" alt=""></div>
+</body>
+</html>
