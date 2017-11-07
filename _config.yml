@@ -1,0 +1,8 @@
+title: Xiangshun110.github.com
+description: test web pages
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
